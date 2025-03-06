@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: Number System, Conversion, and Boolean Logic</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #ff6347;
+            transform: translateY(-3px);
+        }
+
+        h1, h2 {
+            font-weight: bold;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        p, li {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 100px auto 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        main:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .example {
+            margin-bottom: 30px;
+        }
+
+        .example h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .example p {
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chapter1.html">Chapter 1</a></li>
+                <li><a href="chapter2.html">Chapter 2</a></li>
+                <li><a href="chapter3.html">Chapter 3</a></li>
+                <li><a href="chapter4.html">Chapter 4</a></li>
+                <li><a href="chapter5.html">Chapter 5</a></li>
+                <li><a href="chapter6.html">Chapter 6</a></li>
+                <li><a href="chapter7.html">Chapter 7</a></li>
+                <li><a href="chapter8.html">Chapter 8</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    <section id="complement">
+        <h1>Chapter 2: Number System, Conversion and Boolean Logic</h1>
+
+        <h2>1's and 2's Complement</h2>
+        <p><strong>1's Complement:</strong> Reciprocal of 1s to 0s and 0s to 1s is its 1's complement. For example, the 1's complement of (1011)<sub>2</sub> is (0100)<sub>2</sub>.</p>
+        <p><strong>2's Complement:</strong> Adding 1 to the 1's complement of a given binary number is its 2's complement.</p>
+        <p>For example, if (1010)<sub>2</sub> is a given number, then its 1's complement is (0101)<sub>2</sub> and 2's complement is (0101)<sub>2</sub> + (1)<sub>2</sub> = (0110)<sub>2</sub>.</p>
+
+        <h2>Subtraction using 1's and 2's Complement</h2>
+        <p>Rules to remember [let us consider, question be X - Y]:</p>
+        <ul>
+            <li><strong>Using 1's Complement:</strong> Calculate 1's complement of Y, add it to X. If there is an extra bit, remove that extra bit and add it to the remaining bit. If there is no extra bit, find 1's complement of the result and add a negative sign.</li>
+            <li><strong>Using 2's Complement:</strong> Calculate 2's complement of Y, add it to X. If there is an extra bit, remove that extra bit. If there is no extra bit, find 2's complement of the result and add a negative sign.</li>
+        </ul>
+
+        <div class="example">
+            <h3>Example (Board Exam Question)</h3>
+            <p><strong>Q)</strong> Subtract (1000)<sub>2</sub> from (111)<sub>2</sub> using 1's and 2's complement.</p>
+            <h4>Using 1's Complement:</h4>
+            <p>First calculate the 1's complement of (1000)<sub>2</sub>: (0111)<sub>2</sub>.</p>
+            <p>Adding (0111)<sub>2</sub> with (111)<sub>2</sub>, we get (1110)<sub>2</sub>.</p>
+            <p>There is no extra bit. Now calculate the 1's complement of (1110)<sub>2</sub>, which is (0001)<sub>2</sub>. Hence, the result is -(0001)<sub>2</sub>.</p>
+
+            <h4>Using 2's Complement:</h4>
+            <p>First calculate the 2's complement of (1000)<sub>2</sub>: (0111)<sub>2</sub> + (1)<sub>2</sub> = (1000)<sub>2</sub>.</p>
+            <p>Adding (1000)<sub>2</sub> with (111)<sub>2</sub>, we get (1111)<sub>2</sub>.</p>
+            <p>There is no extra bit. Now calculate the 2's complement of (1111)<sub>2</sub>: (0000)<sub>2</sub> + (1)<sub>2</sub> = (0001)<sub>2</sub>. Hence, the result is -(0001)<sub>2</sub>.</p>
+        </div>
+    </section>
+
+    <section id="boolean">
+        <h2>Introduction: Boolean Logic</h2>
+        <p>Boolean Algebra is the algebra of logic, which deals with the study of binary variables and logical operations. Every modern digital computer understands binary values (0 and 1), and Boolean algebra allows us to manipulate these values through certain rules and expressions.</p>
+
+        <h3>Boolean Operators</h3>
+        <p>Operators are the symbols used to define specific operations. The three basic operators used in Boolean Algebra are AND, OR, and NOT.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>Y = A . B (AND)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>Y = A + B (OR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Logic Gates</h3>
+        <p>Logic gates are fundamental components of digital circuits that produce an output based on their input values. The basic logic gates are AND, OR, and NOT gates.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Number System and Boolean Logic. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
